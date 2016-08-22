@@ -16,6 +16,8 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://www.ghostwheel.co.uk" # the base hostname & protocol for your site
 twitter_username: blimeyx
 github_username:  neilduncan
+stackoverflow_username: neild
+stackoverflow_userid: 283552
 
 # Build settings
 markdown: kramdown
