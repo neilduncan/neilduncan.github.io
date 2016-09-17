@@ -13,12 +13,13 @@ I recently got a call from our sysadmin, asking me to tidy up some of our web se
 I _hate_ having to remember to manually clean stuff up like this, so I put on my Powershell hat, and wrote some scripts to do the job. 
 They are designed to delete files older than a certain time, and can be run on specified lists of folders. The scripts are open source, and live [here](https://github.com/aqueduct/Aqueduct.Server.Scripts).
 
-!! Public Health Warning !!
----------------------------
-These will spider a list of folders, and _all sub folders_, deleting any file that is older than 7 days (by default). 
-If you run it on `C:\` or `C:\Users\Neil\non-backed-up-photos-of-my-kids\` or something, then you *will lose your files*. 
-
-**Please be careful!**
+Public Health Warning!
+----------------------
+<div class="notice--danger">
+<p>These will spider a list of folders, and <em>all sub folders</em>, deleting any file that is older than 7 days. 
+If you run it on <code>C:\</code> or <code>C:\Users\Neil\non-backed-up-photos-of-my-kids\</code> or something, then you <em>will lose your files</em>.</p>
+<p><strong>Please be careful!</strong></p>
+</div>
 
 Usage
 -----
