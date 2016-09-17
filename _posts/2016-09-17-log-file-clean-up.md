@@ -16,7 +16,9 @@ They are designed to delete files older than a certain time, and can be run on s
 !! Public Health Warning !!
 ---------------------------
 These will spider a list of folders, and _all sub folders_, deleting any file that is older than 7 days (by default). 
-If you run it on `C:\` or `C:\Users\Neil\non-backed-up-photos-of-my-kids\` or something, then you *will lose your files*. Please be careful!
+If you run it on `C:\` or `C:\Users\Neil\non-backed-up-photos-of-my-kids\` or something, then you *will lose your files*. 
+
+**Please be careful!**
 
 Usage
 -----
