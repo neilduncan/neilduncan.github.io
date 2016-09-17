@@ -11,9 +11,9 @@ You've been developing a site for weeks or months, deploy it to the production s
 
 Usually, this is because either developers don't use SSL at all when building (*really bad*), or are using self signed certificates and are used to having to ignore certificate errors (*not quite as bad, but still bad*).
 
-The way I mitigate this is - when I'm building a site that requires SSL on the server, I _run totally valid SSL certificates on my local machine_. I usually work for [digital agencies](http://www.aqueduct.co.uk), so I usually run LOTS of different sites on my developer PC. 
+The way I mitigate this is - when I'm building a site that requires SSL on the server, I _run totally valid SSL certificates on my local machine_. I usually work for [digital agencies](http://www.aqueduct.co.uk), so I run LOTS of different sites on my developer PC. 
 
-What I really want is a self signed wildcard certificate that validates correctly and gives me nice green padlocks in my browser. Here's how to do this.
+What I really want is a self signed wildcard certificate that validates correctly and gives me nice green padlocks in my browser. Here's how to do it.
 
 Install a fake trusted root authority
 -------------------------------------
@@ -32,7 +32,7 @@ Next, we need a wildcard certificate, signed by the new root authority.
 
 Bind the certificate to port 443
 --------------------------------
-To use the new certificate in IIS, it needs to be bound to port 443. This will allow us to have _lots_ of sites all running SSL.
+To use the new certificate in IIS, it needs to be bound to port 443. This will allow us to have _lots_ of sites all running valid SSL.
 
 Open up powershell then
 
