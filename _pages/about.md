@@ -20,7 +20,7 @@ I have a passion for making my code clear, performant, and understandable. I am 
 
 I have experience with a number of Agile software development methodologies, and have used Scrum and Kanban extensively. If needed I can help to train and mentor teams, to improve their understanding and implementation of these techniques.
 
-My main field of expertise is ASP.Net website development, with a focus on the [Sitecore](http://www.sitecore.net) Content Management System. I am a Sitecore Certified Software Developer. I have been trained in (and have experience implementing) the Sitecore <abbr title="Digital Marketing System">DMS</abbr> to provide personalised experiences for users.
+My main field of expertise is ASP.Net website development, with a focus on the [Sitecore Content Management System](http://www.sitecore.net). I am a Sitecore Certified Software Developer. I have been trained in (and have experience implementing) the Sitecore <abbr title="Digital Marketing System">DMS</abbr> to provide personalised experiences for users.
 
 In the last 5 years, I've built sites for Premier League football clubs ([Manchester City](http://www.mancity.com/) and [Sunderland](http://www.safc.com)), financial firms in the City of London ([Lloyds of London](http://www.lloyds.com)), betting companies ([Betfred](http://www.betfred.com)), broadcasters ([BT Sport](http://sport.bt.com)), record labels ([Ministry of Sound](http://www.ministryofsound.com)), travel companies ([Trafalgar Tours](http://www.trafalgar.com)) and many more. 
 
