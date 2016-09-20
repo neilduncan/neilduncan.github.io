@@ -1,5 +1,4 @@
 ---
-layout: single
 title: Green padlocks for local development
 category: SSL
 excerpt: We've all done it. You've been developing a site for weeks or months, deploy it to the production server, and everything falls over because you've done something dumb related to SSL and browser security. It's easily done. 
