@@ -74,8 +74,11 @@ public class WidgetController : Controller
 
 Now we're getting somewhere! No more dependency on `ISitecoreContext`, and we don't need to explicitly bind the model on each action. 
 
-Note how we've decorated the model being passed in with the `Glass` attribute. This is what tells ASP.Net MVC to use our new model binder. 
+Note how we've decorated the model being passed in with the `Glass` attribute. This is what tells ASP.Net MVC to use our new model binder.
+{: .notice--info}
+
 Here's what the code for `GlassAttribute` looks like.
+
 
 ```csharp
 public class GlassAttribute : CustomModelBinderAttribute, IModelBinder
@@ -111,7 +114,7 @@ public class GlassAttribute : CustomModelBinderAttribute, IModelBinder
 
 You'll probably recognize the `InferType` and `IsLazy` properties if you've done any work with Glass before. They're used here to be able to pass down our preferences for how we want our mapping to work to the binder. 
 
-Because this is an Attribute, it's not easy to pass in an `IGlassBinder`, so I've done the next best thing and grabbed it from the current `DependencyResolver`. There is still a public constructor which takes an `IGlassBinder` for use in tests, etc.
+Because this is an Attribute, it's not easy to pass in an `IGlassBinder`, so I've done the next best thing and grabbed it from the current `DependencyResolver`. There is still a public constructor which takes an `IGlassBinder` for use in tests.
 
 Speaking of `IGlassBinder`... 
 
@@ -194,7 +197,7 @@ Conclusion
 
 I've found this to be a really nice way to work. The mapping of my models is all nicely kept in a single place. It copes well with datasources, and makes my controllers very simple to test. 
 
-I've also extended this to add other attributes like `GlassHome` for mapping the `Home` item for the current site. This is used for things like a footer rendering which stores data in a single place for the whole site. 
+I've also extended this to add other attributes like `GlassHome` for mapping the home item for the current site. This is used for things like a footer rendering so you can store the data in a single place for the whole site. 
 
 ```csharp
 public ViewResult Footer([GlassHome] NavigationSource source)
@@ -203,7 +206,7 @@ public ViewResult Footer([GlassHome] NavigationSource source)
 }
 ```
 
-There is also a `GlassCurrentItem` attribute for when you have some properties that you need from the current item, as well as others that are coming from a datasource. One example for a place where this is useful is if you're trying to get related content for a specific article page. The information about the rendering (background colour, title) can come from the datasource, and the information about the page (tags) can come from the page. 
+There is also a `GlassCurrentItem` attribute for when you have some properties that you need from the current item, as well as others that are coming from a datasource. One example for a place where this is useful is if you're trying to get related content for a specific article page. The information about the rendering (background colour, title) can come from the datasource, and the information about the page (tags, linked articles) can come from the current item. 
 
 ```csharp
 public ActionResult RelatedContent([Glass] RelatedContentModule module, [GlassCurrentItem] ContentPage page)
