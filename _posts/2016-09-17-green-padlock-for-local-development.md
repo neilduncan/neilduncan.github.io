@@ -19,7 +19,9 @@ Install a fake trusted root authority
 Before we generate our fancy new certificate, we'll need a fake authority to sign it for us. 
 On Windows 7, you can run `makecert`, which is a tool that comes with Visual Studio or the Windows SDK. 
 
-    makecert.exe -n "CN=Ghostwheel Development Root CA,O=Ghostwheel,OU=Development,L=London,S=London,C=UK" -pe -ss Root -sr LocalMachine -sky exchange -m 120 -a sha1 -len 2048 -r
+```
+makecert.exe -n "CN=Ghostwheel Development Root CA,O=Ghostwheel,OU=Development,L=London,S=London,C=UK" -pe -ss Root -sr LocalMachine -sky exchange -m 120 -a sha1 -len 2048 -r
+```
 
 If you're on Windows 10, you'll need to run the Powershell command [New-SelfSignedCertificate](https://technet.microsoft.com/library/hh848633). 
 
@@ -27,7 +29,9 @@ Install a wildcard certificate for *.local.com
 ----------------------------------------------
 Next, we need a wildcard certificate, signed by the new root authority. 
 
-    makecert.exe -n "CN=*.local.com" -pe -ss My -sr LocalMachine -sky exchange -m 120 -in "Ghostwheel Development Root CA" -is Root -ir LocalMachine -a sha1 -eku 1.3.6.1.5.5.7.3.1
+```
+makecert.exe -n "CN=*.local.com" -pe -ss My -sr LocalMachine -sky exchange -m 120 -in "Ghostwheel Development Root CA" -is Root -ir LocalMachine -a sha1 -eku 1.3.6.1.5.5.7.3.1
+```
 
 Bind the certificate to port 443
 --------------------------------
@@ -35,14 +39,18 @@ To use the new certificate in IIS, it needs to be bound to port 443. This will a
 
 Open up powershell then
 
-    dir Cert:\LocalMachine\My
+```posh
+dir Cert:\LocalMachine\My
+```
 
 Find the thumbprint of the new cert (XXXXXXXXX)
 
-    Import-Module WebAdministration
-    cd IIS:\SslBindings
-    Remove-Item .\0.0.0.0!443
-    Get-Item cert:\LocalMachine\My\XXXXXXXXX | New-Item 0.0.0.0!443
+```posh
+Import-Module WebAdministration
+cd IIS:\SslBindings
+Remove-Item .\0.0.0.0!443
+Get-Item cert:\LocalMachine\My\XXXXXXXXX | New-Item 0.0.0.0!443
+```
 
 Once the steps above have been done once, there's no need to ever do them again. 
 
@@ -50,9 +58,12 @@ Add the binding for your site
 -----------------------------
 First, add an entry in your [hosts file](https://support.rackspace.com/how-to/modify-your-hosts-file/) for the website you want to use. It needs to be of the form *.local.com for the certificate to validate properly.
 
-    127.0.0.1 mysite.local.com
-
+```
+127.0.0.1 mysite.local.com
+```
 Finally, we need to add a binding in IIS so that we can serve our local site as `https://`
 The IIS UI is a bit deficient here. It's expecting that you'll never have more than one site running against a single certificate (port/IP address). Luckily, we can do it via the command line.
 
-    %systemroot%\system32\inetsrv\appcmd set site /site.name: mysite.local.com /+bindings.[protocol='https',bindingInformation='*:443:mysite.local.com']
+```
+%systemroot%\system32\inetsrv\appcmd set site /site.name: mysite.local.com /+bindings.[protocol='https',bindingInformation='*:443:mysite.local.com']
+```

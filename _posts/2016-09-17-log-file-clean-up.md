@@ -44,7 +44,7 @@ Set-ExecutionPolicy Unrestricted
 Then you can run the scripts, and tidy up the listed folders. 
 
 ```posh	
-.\Execute.ps1
+.\\Execute.ps1
 ```
 
 Scheduling
