@@ -8,9 +8,9 @@ When I first started using [Glass Mapper](http://glass.lu) with Sitecore, I had 
 ```csharp
 using System.Web.Mvc;
 using Glass.Mapper.Sc;
-using SAFC.Site.Models;
+using My.Site.Models;
 
-namespace SAFC.Site.Controllers
+namespace My.Site.Controllers
 {
     public class WidgetController : Controller
     {
