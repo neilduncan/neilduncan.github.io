@@ -1,6 +1,8 @@
 ---
 title: Log file cleanup
 category: SysAdmin
+header:
+    image: posts/logging/servers.jpg
 ---
 
 I recently got a call from our sysadmin, asking me to tidy up some of our web servers. My diligent logging had filled up 100s of Gb of disk space, and it was becoming an issue. 
