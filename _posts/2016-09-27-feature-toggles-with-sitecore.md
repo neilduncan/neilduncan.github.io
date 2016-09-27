@@ -3,7 +3,7 @@ title: Feature Toggles with Sitecore
 category: Sitecore
 header: 
     image: posts/toggles/switches.jpg
-excerpt: How to use feature toggling 
+excerpt: How to use feature toggling with Sitecore to enable Continuous Delivery. 
 ---
 
 > "Feature Toggling" is a set of patterns which can help a team to deliver new functionality to users rapidly but safely. 
