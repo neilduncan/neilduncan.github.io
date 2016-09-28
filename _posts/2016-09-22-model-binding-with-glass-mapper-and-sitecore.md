@@ -1,6 +1,8 @@
 ---
 title: Model binding with Glass Mapper and Sitecore
 category: Sitecore
+header: 
+    image: posts/binding/net.jpg
 ---
 
 When I first started using [Glass Mapper](http://glass.lu) with Sitecore, I had lots of code like this in my controllers.
