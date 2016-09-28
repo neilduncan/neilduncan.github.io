@@ -82,7 +82,7 @@ author:
   bio              : "Freelance .Net and Sitecore developer"
   location         : "London, UK"
   email            : "neil@ghostwheel.co.uk"
-  uri              : 
+  uri              :
   bitbucket        :
   codepen          :
   dribbble         :
@@ -134,6 +134,7 @@ exclude:
   - Rakefile
   - README
   - tmp
+  - serve-local.sh
 keep_files:
   - .git
   - .svn
