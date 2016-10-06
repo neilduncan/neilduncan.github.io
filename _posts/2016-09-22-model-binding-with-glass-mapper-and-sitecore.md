@@ -1,7 +1,7 @@
 ---
 title: Model binding with Glass Mapper and Sitecore
 category: Sitecore
-header: 
+header:
     image: posts/binding/net.jpg
 ---
 
@@ -29,7 +29,7 @@ namespace My.Site.Controllers
 ```
 
 Basically - get a new context... get me the current item mapped to my model type... stuff it in a view... done.
-There are a few things that you can do to tidy this up. Injecting the context in a constructor is an obvious example. 
+There are a few things that you can do to tidy this up. Injecting the context in a constructor is an obvious example.
 
 Second attempt
 --------------
@@ -55,14 +55,14 @@ public class WidgetController : Controller
 
 There were a few issues that I was still not happy about though.
 
-1. It doesn't use the datasource for renderings. It just grabs the current item, blindly. 
-2. You end up with `ISitecoreContext` all over the place. Every controller now has a dependency on it. 
-3. You're still mapping the model in every action. 
+1. It doesn't use the datasource for renderings. It just grabs the current item, blindly.
+2. You end up with `ISitecoreContext` all over the place. Every controller now has a dependency on it.
+3. You're still mapping the model in every action.
 
 A better approach
 -----------------
 
-The next approach was to use [model binding](https://docs.asp.net/en/latest/mvc/models/model-binding.html). 
+The next approach was to use [model binding](https://docs.asp.net/en/latest/mvc/models/model-binding.html).
 
 ```csharp
 public class WidgetController : Controller
@@ -74,7 +74,7 @@ public class WidgetController : Controller
 }
 ```
 
-Now we're getting somewhere! No more dependency on `ISitecoreContext`, and we don't need to explicitly bind the model on each action. 
+Now we're getting somewhere! No more dependency on `ISitecoreContext`, and we don't need to explicitly bind the model on each action.
 
 Note how we've decorated the model being passed in with the `Glass` attribute. This is what tells ASP.Net MVC to use our new model binder.
 {: .notice--info}
@@ -114,11 +114,11 @@ public class GlassAttribute : CustomModelBinderAttribute, IModelBinder
 }
 ```
 
-You'll probably recognize the `InferType` and `IsLazy` properties if you've done any work with Glass before. They're used here to be able to pass down our preferences for how we want our mapping to work to the binder. 
+You'll probably recognize the `InferType` and `IsLazy` properties if you've done any work with Glass before. They're used here to be able to pass down our preferences for how we want our mapping to work to the binder.
 
 Because this is an Attribute, it's not easy to pass in an `IGlassBinder`, so I've done the next best thing and grabbed it from the current `DependencyResolver`. There is still a public constructor which takes an `IGlassBinder` for use in tests.
 
-Speaking of `IGlassBinder`... 
+Speaking of `IGlassBinder`...
 
 ```csharp
 public interface IGlassBinder
@@ -153,7 +153,7 @@ public class GlassBinder : IGlassBinder
         var item = Sitecore.Mvc.Presentation.RenderingContext.CurrentOrNull?.Rendering?.Item ??
                    Sitecore.Context.Item;
 
-        return _sitecoreContext.CreateType(modelType, item, IsLazy, InferType, null);;
+        return _sitecoreContext.CreateType(modelType, item, IsLazy, InferType, null);
     }
 
     public T BindType<T>()
@@ -163,9 +163,9 @@ public class GlassBinder : IGlassBinder
 }
 ```
 
-Phew! There's a few things going on here, so lets break it down. 
+Phew! There's a few things going on here, so lets break it down.
 
-First, this is where we've moved our dependency on `ISitecoreContext`. It's a single place, so that's an improvement on shotgunning it all over the controllers. 
+First, this is where we've moved our dependency on `ISitecoreContext`. It's a single place, so that's an improvement on shotgunning it all over the controllers.
 
 ```csharp
 public GlassBinder(ISitecoreContext sitecoreContext)
@@ -174,7 +174,7 @@ public GlassBinder(ISitecoreContext sitecoreContext)
 }
 ```
 
-In the `BindType` method, we do a little validation to check that we can get a valid `ISitecoreContext` and throw an exception if not. 
+In the `BindType` method, we do a little validation to check that we can get a valid `ISitecoreContext` and throw an exception if not.
 
 ```csharp
 if (_sitecoreContext == null)
@@ -184,11 +184,11 @@ if (_sitecoreContext == null)
 Next we work out what `Item` we need to bind to - has a content editor set a datasource on the rendering, or are we defaulting to the current Sitecore item?
 
 ```csharp
-var item = Sitecore.Mvc.Presentation.RenderingContext.CurrentOrNull?.Rendering?.Item ?? 
+var item = Sitecore.Mvc.Presentation.RenderingContext.CurrentOrNull?.Rendering?.Item ??
            Sitecore.Context.Item;
-``` 
+```
 
-Finally, we map the model using our Glass context, and return it. 
+Finally, we map the model using our Glass context, and return it.
 
 ```csharp
 return _sitecoreContext.CreateType(modelType, item, IsLazy, InferType, null);
@@ -197,9 +197,9 @@ return _sitecoreContext.CreateType(modelType, item, IsLazy, InferType, null);
 Conclusion
 ----------
 
-I've found this to be a really nice way to work. The mapping of my models is all nicely kept in a single place. It copes well with datasources, and makes my controllers very simple to test. 
+I've found this to be a really nice way to work. The mapping of my models is all nicely kept in a single place. It copes well with datasources, and makes my controllers very simple to test.
 
-I've also extended this to add other attributes like `GlassHome` for mapping the home item for the current site. This is used for things like a footer rendering so you can store the data in a single place for the whole site. 
+I've also extended this to add other attributes like `GlassHome` for mapping the home item for the current site. This is used for things like a footer rendering so you can store the data in a single place for the whole site.
 
 ```csharp
 public ViewResult Footer([GlassHome] NavigationSource source)
@@ -208,7 +208,7 @@ public ViewResult Footer([GlassHome] NavigationSource source)
 }
 ```
 
-There is also a `GlassCurrentItem` attribute for when you have some properties that you need from the current item, as well as others that are coming from a datasource. One example for a place where this is useful is if you're trying to get related content for a specific article page. The information about the rendering (background colour, title) can come from the datasource, and the information about the page (tags, linked articles) can come from the current item. 
+There is also a `GlassCurrentItem` attribute for when you have some properties that you need from the current item, as well as others that are coming from a datasource. One example for a place where this is useful is if you're trying to get related content for a specific article page. The information about the rendering (background colour, title) can come from the datasource, and the information about the page (tags, linked articles) can come from the current item.
 
 ```csharp
 public ActionResult RelatedContent([Glass] RelatedContentModule module, [GlassCurrentItem] ContentPage page)
