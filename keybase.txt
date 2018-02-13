@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/neilduncan
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://www.ghostwheel.co.uk
+  * I am neilduncan (https://keybase.io/neilduncan) on keybase.
+  * I have a public key with fingerprint 9FC4 EAAD 99AA D3E1 36A5  61A3 EFF9 1E66 502F EEC5
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101f721fca889dfa805c8aae96b95e7887801684c450a08d476ce0386e8747ef2270a",
+      "fingerprint": "9fc4eaad99aad3e136a561a3eff91e66502feec5",
+      "host": "keybase.io",
+      "key_id": "eff91e66502feec5",
+      "kid": "0101f721fca889dfa805c8aae96b95e7887801684c450a08d476ce0386e8747ef2270a",
+      "uid": "32ba88a0887c9d111113bee3b2b4ea19",
+      "username": "neilduncan"
+    },
+    "service": {
+      "hostname": "www.ghostwheel.co.uk",
+      "protocol": "http:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1518528629,
+  "expire_in": 157680000,
+  "prev": "1e27322420eebd0f389b762c6788b96ead8bfd40394b084e56ca667ed5b884e7",
+  "seqno": 10,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.76
+Comment: https://keybase.io/crypto
+
+yMIqAnicrZJbbAxRGMe3WpquiAo2hCYySGU1a65nztQlgiAe3OISotY5c77ZTrad
+WbuzvaTqFhERvLSIVtC634IHcak71SCCSIN6QAltQ/Eg4oE60/Dm0Xk4J9+X//93
+vu/Ld2dAZiCYUTP1c9a+IXkrMh7cbEgHlm/sSFcJ1GWVQmGVEIfeB0oYpLxo3GZC
+oSBKomTpsmSZBGODWQSLmokJAQNRQwMdYx2LEsKqqWoiETFTdWSCqGAEWFd1sGRZ
+F4lQIFi2E4NkImk7HscalqkCIcww+KWApCCiIYkoYFmGBAhpomwBmBo3Frsp38GL
+oyQFEdvlOR5Ee8v7h/4/153uxSky5Ryuw7ppMMk/CgVQqEx5H5LhC1OQdEgpcLUD
+dglLOyZxhOoCgefLbBP80fq9/NGUl5dHYn5cXgxQEjHdSDrOKYmk67mmW8IVxZ6X
+KPQBXmWi1wE0+ocVpbbD+EC5oQySKdt1hEKJK03P9uGSJmFNxkg2CgSoSNhJiNq+
+QtMRFvnxv4EyjpRA1hVZVmURgDLRUrBBdSSbiM+HGggIw9RiqqgYKhWxChoyCUI6
+MI1iHuqC391qx+VsDvVIjDNTdswhXjoJQvWtGyuyAhnBQL++ffxNCwRzcv/u369w
+dk+84uPjRW0V4z7U54YvjC8CZ/73nBHGzHkvn7QlXrH81j01zaEfh843lB79erX/
+yGHSzrg4JG/TtW9WztwFoTk77Nabk0+9PtQWDlcO2ixub1p4+SGw7KL9mb/uDMyX
+Dh9sXnKldE73gc7Gle9ru69/ubh7Xaw95AUbuhqmjKh/vm1G1Aub0oZlY0OhXdfu
+r7t4tW7a2qd3W3ON/K0TrJrI2UntTWV0UbCWHGNy13FM93ZcqorknmgZPPHM8M7u
+ihernv2cuZ7M6kHWoO/vD56bVznV3MJGZ54Zdzrw6GTb9SMtn2Y3vlk8av+7t9PH
+7Bm+5tnLlckZ1U0Dlx67V/e09na2MHHob7SkRCo=
+=UosP
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/neilduncan
+
+==================================================================
